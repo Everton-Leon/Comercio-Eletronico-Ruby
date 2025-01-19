@@ -40,6 +40,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Gen do Devise
+  gem 'devise'
 end
 
 group :development do
