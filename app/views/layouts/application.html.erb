@@ -14,18 +14,17 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= render "shared/header" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-    <%= link_to "Sair", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Entrar", new_user_session_path %>
-      <%= link_to "Registrar", new_user_registration_path %>
-    <% end %>
+    
 
     <%= yield %>
+
+    <%= render "shared/footer" %>
   </body>
 </html>
