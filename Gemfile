@@ -43,6 +43,11 @@ group :development, :test do
 
   # Gen do Devise
   gem 'devise'
+
+  # Gen do Bootstrap
+  gem 'bootstrap', '~> 5.3'
+
+  gem 'sassc-rails'
 end
 
 group :development do
