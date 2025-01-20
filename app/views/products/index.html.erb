@@ -2,15 +2,20 @@
 
 <% content_for :title, "Products" %>
 
-<h1>Products</h1>
+<div class="container">
+<h1 class="display-5 m-5">Produtos</h1>
 
-<div id="products">
+<div class="row">
+
+<div id="products" class="d-flex justify-content-evenly flex-wrap">
   <% @products.each do |product| %>
     <%= render product %>
-    <p>
+    <!-- <p>
       <%= link_to "Show this product", product %>
-    </p>
+    </p> -->
   <% end %>
 </div>
+</div>
 
-<%= link_to "New product", new_product_path %>
+<!-- <%= link_to "New product", new_product_path %> -->
+</div>

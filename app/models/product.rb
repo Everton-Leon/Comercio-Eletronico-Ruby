@@ -6,4 +6,5 @@ class Product
   field :price, type: Integer
   field :quantity, type: Integer
   field :category, type: String
+  field :image, type: String
 end
