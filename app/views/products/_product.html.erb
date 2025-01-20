@@ -1,27 +1,14 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Quantity:</strong>
-    <%= product.quantity %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= product.category %>
-  </p>
+<div id="<%= dom_id product %>" class="mb-5">
+<div class="card" style="width: 18rem;">
+<img src="<%= product.image %>" class="card-img-top">
+<div class="card-body">
+  <h5 class="card-title"><%= product.name %></h5>
+  <p class="card-text"><%= product.description %></p>
+  <p><strong>Preço: </strong>R$<%= product.price %></p>
+  <p><strong>Quantidade: </strong><%= product.quantity %></p>
+  <p><strong>Categoria: </strong><%= product.category %></p>
+  <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+</div>
+</div>
 
 </div>
