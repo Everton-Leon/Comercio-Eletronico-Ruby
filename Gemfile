@@ -41,11 +41,11 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # Gen do Devise
+  # Gem do Devise
   gem 'devise'
 
-  # Gen do Bootstrap
-  gem 'bootstrap', '~> 5.3'
+  # Gem do Bootstrap
+  gem 'bootstrap', '~> 5.3.3'
 
   gem 'sassc-rails'
 end

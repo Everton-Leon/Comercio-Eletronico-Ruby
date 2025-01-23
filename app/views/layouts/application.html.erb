@@ -20,9 +20,9 @@
   <body>
     <%= render "shared/header" %>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice"><% defined?(status) ? "A" : "B" %></p>
+    <p class="alert alert-danger"><%= alert %></p>
     
-
     <%= yield %>
 
     <%= render "shared/footer" %>
