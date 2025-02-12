@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   
   root :to => "products#index"
+  post 'add_to_cart', to: 'carts#add_to_cart', as: 'add_to_cart'
+  get 'cart', to: 'carts#show', as: 'cart'
+  get '/reset_session', to: 'sessions#reset'
+
 
   devise_for :users
 

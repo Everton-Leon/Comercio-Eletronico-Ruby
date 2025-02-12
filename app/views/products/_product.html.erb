@@ -7,7 +7,7 @@
   <p><strong>Preço: </strong>R$<%= product.price %></p>
   <p><strong>Quantidade: </strong><%= product.quantity %></p>
   <p><strong>Categoria: </strong><%= product.category %></p>
-  <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+  <%= button_to "Adicionar ao Carrinho", add_to_cart_path(product_id: product.id), method: :post, class: "btn btn-primary" %>
 </div>
 </div>
 
