@@ -3,7 +3,7 @@ class Product
   include Mongoid::Timestamps
   field :name, type: String
   field :description, type: String
-  field :price, type: Integer
+  field :price, type: BigDecimal
   field :quantity, type: Integer
   field :category, type: String
   field :image, type: String

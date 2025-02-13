@@ -4,7 +4,7 @@
 <div class="card-body">
   <h5 class="card-title"><%= product.name %></h5>
   <p class="card-text"><%= product.description %></p>
-  <p><strong>Preço: </strong>R$<%= product.price %></p>
+  <p><strong>Preço: </strong>R$<%= product.price.round(2) %></p>
   <p><strong>Quantidade: </strong><%= product.quantity %></p>
   <p><strong>Categoria: </strong><%= product.category %></p>
   <%= button_to "Adicionar ao Carrinho", add_to_cart_path(product_id: product.id), method: :post, class: "btn btn-primary" %>

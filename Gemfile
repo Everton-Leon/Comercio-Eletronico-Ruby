@@ -48,6 +48,8 @@ group :development, :test do
   gem 'bootstrap', '~> 5.3'
 
   gem 'sassc-rails'
+
+  gem 'mercadopago-sdk'
 end
 
 group :development do

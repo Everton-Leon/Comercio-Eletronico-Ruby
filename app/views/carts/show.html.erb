@@ -1,4 +1,5 @@
-<h1>Carrinho de Compras</h1>
+<div class="container">
+<h1 class="display-5 m-5">Carrinho de Compras</h1>
 
 <% if session[:cart]&.any? %>
   <table class="table">
@@ -11,19 +12,33 @@
     </thead>
     <tbody>
       <% preco_total = 0 %>
+      <% pedidos = [] %>
       <% session[:cart].each do |product_id, quantity| %>
         <% product = Product.find(product_id) %>
         <tr>
           <td><%= product.name %></td>
-          <td><%= number_to_currency(product.price) %></td>
+          <td>R$<%= product.price.round(2) %></td>
           <td><%= product.category %></td>
           <% preco_total += product.price %>
+          <% pedidos << product %>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <p>Total: <%= number_to_currency(preco_total) %></p>
-  <button class="btn btn-success">Finalizar Compra</button>
-<% else %>
+  <div class="row pt-3">
+  <div class="col-6">
+  <p><strong>Total: R$</strong><%= preco_total.round(2) %></p>
+  </div>
+  <div class="col-6 text-end">
+  <%= button_to "Finalizar Compra", salvar_pedido_path(pedidos: pedidos), method: :post, class: "btn btn-success" %>
+  </div>
+  </div>
+  <% else %>
   <p>Seu carrinho está vazio.</p>
-<% end %>
+  <% end %>
+  </div>
+  <!--  <form action="cart/procesar-pago" method="POST">
+      <script src="https://www.mercadopago.cl/integrations/v1/web-
+  payment-checkout.js" data-preference-id="<%= @preference_id %>">
+      </script>
+  </form> -->

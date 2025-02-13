@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   post 'add_to_cart', to: 'carts#add_to_cart', as: 'add_to_cart'
   get 'cart', to: 'carts#show', as: 'cart'
   get '/reset_session', to: 'sessions#reset'
+  post 'cart/procesar-pago', to: 'carts#index', as: 'index'
+  post 'pedido', to: 'pedidos#salvar_pedido', as: 'salvar_pedido'
+  # post '/salvar_pedido', to: 'pedidos#salvar_pedido', as: 'salvar_pedido'
+  # resources :payments, only: [:create]
+
 
 
   devise_for :users
