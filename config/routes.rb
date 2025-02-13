@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/reset_session', to: 'sessions#reset'
   post 'cart/procesar-pago', to: 'carts#index', as: 'index'
   post 'pedido', to: 'pedidos#salvar_pedido', as: 'salvar_pedido'
+  post '/process_payment', to: 'pedidos#pagamento', as: 'pagamento'
   # post '/salvar_pedido', to: 'pedidos#salvar_pedido', as: 'salvar_pedido'
   # resources :payments, only: [:create]
 
