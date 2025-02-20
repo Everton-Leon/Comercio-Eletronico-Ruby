@@ -61,7 +61,7 @@ class PedidosController < ApplicationController
   def pagamento
     require 'mercadopago'
     sdk = Mercadopago::SDK.new('TEST-8768309179065590-021311-a0f19ea7cee72456652b3ecb0765004a-383435343')
-
+  
     payment_data = {
       transaction_amount: params[:transaction_amount].to_f,
       token: params[:token],
@@ -77,20 +77,20 @@ class PedidosController < ApplicationController
         first_name: params[:cardholderName]
       }
     }
-
+  
     payment_response = sdk.payment.create(payment_data)
-    payment = payment_response[:response]
-
-    if payment
-      return payment
+  
+    # Captura resposta completa para depuração
+    puts "Resposta Completa: #{payment_response.inspect}"
+  
+    if payment_response[:response] && payment_response[:response]['status'] == 'approved'
+      session[:cart] = {}
+      render json: { success: true, redirect_url: "/", notice: "Pagamento aprovado!" }
     else
-      return payment
-    end
-    respond_to do |format|
-      format.html { redirect_to pedidos_path, status: :see_other, notice: "Pedido was successfully destroyed." }
-      format.json { head :no_content }
+      render json: { success: false, error: payment_response[:response], login: "login invalido" }, status: :unprocessable_entity
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
