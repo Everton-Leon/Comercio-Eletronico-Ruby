@@ -80,14 +80,11 @@ class PedidosController < ApplicationController
   
     payment_response = sdk.payment.create(payment_data)
   
-    # Captura resposta completa para depuração
-    puts "Resposta Completa: #{payment_response.inspect}"
-  
     if payment_response[:response] && payment_response[:response]['status'] == 'approved'
       session[:cart] = {}
       render json: { success: true, redirect_url: "/", notice: "Pagamento aprovado!" }
     else
-      render json: { success: false, error: payment_response[:response], login: "login invalido" }, status: :unprocessable_entity
+      render json: { success: false, error: payment_response[:response] }, status: :unprocessable_entity
     end
   end
   

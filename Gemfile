@@ -41,14 +41,15 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  # Gen do Devise
+  # Gem do Devise
   gem 'devise'
 
-  # Gen do Bootstrap
+  # Gem do Bootstrap
   gem 'bootstrap', '~> 5.3'
 
   gem 'sassc-rails'
 
+  # Gem do Mercado Pago
   gem 'mercadopago-sdk'
 end
 
